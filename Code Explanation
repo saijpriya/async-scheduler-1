@@ -1,0 +1,18 @@
+Scheduler Class
+Constructor:
+
+maxConcurrency: Maximum number of concurrent tasks.
+runningTasks: Tracks how many tasks are currently running.
+taskQueue: Holds pending tasks.
+addTask(task):
+
+Wraps the provided task function.
+If under the concurrency limit, runs the task immediately.
+Otherwise, adds the task to the queue.
+runNext():
+
+Checks if there are tasks in the queue and free slots for running tasks.
+Dequeues the next task and runs it.
+Task Execution Flow
+Tasks start immediately if slots are available.
+Once a task finishes, runNext() triggers the next task in the queue.
